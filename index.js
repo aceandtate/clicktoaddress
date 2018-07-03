@@ -1,4 +1,4 @@
-import fetch from "isomorphic-fetch";
+const fetch = require("isomorphic-fetch");
 
 const API_ENDPOINT = "https://api.craftyclicks.co.uk/address/1.1/";
 const defaultOptions = {
@@ -9,7 +9,7 @@ const defaultOptions = {
   }
 };
 
-export default function createClient({
+module.exports = function createClient({
   key,
   endpoint = API_ENDPOINT,
   fetch = global.fetch,
@@ -42,4 +42,4 @@ export default function createClient({
       ),
     retrieve: args => api("retrieve", args).then(data => data.result)
   });
-}
+};
