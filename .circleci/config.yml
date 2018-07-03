@@ -15,6 +15,9 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm test
+      - run: npm test -- --coverage
+      - run:
+          name: Coverage Report
+          command: bash <(curl -s https://codecov.io/bash)
 
 
