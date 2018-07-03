@@ -1,0 +1,27 @@
+{
+  "name": "@aceandate/clicktoaddress",
+  "version": "0.1.0",
+  "description": "A clicktoaddress client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aceandtate/clicktoaddress.git"
+  },
+  "keywords": [
+    "address",
+    "clicktoaddress",
+    "craftyclicks"
+  ],
+  "author": "m@reaktivo.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aceandtate/clicktoaddress/issues"
+  },
+  "homepage": "https://github.com/aceandtate/clicktoaddress#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  }
+}
