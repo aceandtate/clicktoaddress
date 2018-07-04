@@ -9,36 +9,39 @@ const defaultOptions = {
   }
 };
 
+const extend = (...args) => Object.assign({}, ...args);
+
 module.exports = function createClient({
   key,
   endpoint = API_ENDPOINT,
   fetch = global.fetch,
   options = defaultOptions
 }) {
-  const api = async (path, args) => {
+  const api = (path, args) => {
     const url = `${endpoint}${path}`;
-    const requestOptions = {
-      ...options,
-      body: JSON.stringify({ key, ...args })
-    };
-    const response = await fetch(url, requestOptions);
-    return response.json();
+    const requestOptions = extend(options, {
+      body: JSON.stringify(extend(args, { key }))
+    });
+
+    return fetch(url, requestOptions).then(res => res.json());
   };
 
   return Object.assign(api, {
     countries: args =>
       api("countries", args).then(data =>
-        data.countries.map(country => ({
-          ...country,
-          get: query => api.find({ country: country.code, query })
-        }))
+        data.countries.map(country =>
+          extend(country, {
+            get: query => api.find({ country: country.code, query })
+          })
+        )
       ),
     find: args =>
       api("find", args).then(data =>
-        data.results.map(result => ({
-          ...result,
-          get: () => api.retrieve({ country: args.country, id: result.id })
-        }))
+        data.results.map(result =>
+          extend(result, {
+            get: () => api.retrieve({ country: args.country, id: result.id })
+          })
+        )
       ),
     retrieve: args => api("retrieve", args).then(data => data.result)
   });
