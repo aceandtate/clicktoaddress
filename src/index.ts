@@ -100,7 +100,14 @@ export default function createClient({
     };
 
     const response = await fetch(url, requestOptions);
-    return response.json();
+    const json = await response.json();
+    if (json.error) {
+      // Stacktrace not useful in this case,
+      //  so we throw an error string
+      throw json.error.message || json.error;
+    }
+
+    return json;
   };
 
   const countries = (args: CountriesArgs) =>
