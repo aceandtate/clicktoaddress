@@ -9,7 +9,7 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "target": "ES2016"
+    "target": "es2015"
   },
   "include": ["src/**/*"],
   "exclude": ["**/*.test.ts"]
