@@ -22,6 +22,6 @@ const countryMappers: CountryMappers = {
 
 export default function mapRetrievedResult(args: RetrieveArgs, result: RetrieveResponseResult) {
   const countryCode = args.country as keyof typeof countryMappers;
-  const mapper = countryMappers[countryCode];
+  const mapper = countryMappers[`${countryCode}`.toUpperCase()];
   return mapper ? mapper(result) : result;
 }
