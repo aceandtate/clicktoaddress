@@ -22,11 +22,11 @@ describe("createClient", () => {
   it("should call the passed fetch", async () => {
     const fetch = fetchWithMock();
     const { get } = clientWithMock({ fetch });
-    const response = await get("something", { my: "arg" });
+    const response = await get("something", { country: 'MX', query: 'query' });
     expect(fetch).toHaveBeenCalledWith(
       "https://api.craftyclicks.co.uk/address/1.1/something",
       {
-        body: '{"my":"arg","key":"some key"}',
+        body: JSON.stringify({ country: 'MX', query: 'query', key: 'some key' }),
         mode: "cors",
         headers: { "Content-Type": "application/json; charset=utf-8" },
         method: "POST"

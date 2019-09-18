@@ -1,6 +1,6 @@
 {
   "name": "@aceandtate/clicktoaddress",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A clicktoaddress client",
   "main": "dist/index.js",
   "scripts": {
@@ -28,11 +28,11 @@
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
-    "@types/isomorphic-fetch": "0.0.34",
-    "@types/jest": "^23.1.4",
-    "jest": "^23.3.0",
-    "ts-jest": "^23.0.0",
-    "typescript": "^2.9.2"
+    "@types/isomorphic-fetch": "0.0.35",
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "jest": {
     "transform": {
