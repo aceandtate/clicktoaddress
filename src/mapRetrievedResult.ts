@@ -1,12 +1,10 @@
 import { RetrieveResponseResult, RetrieveArgs } from './types';
 
-const identity = (value: any) => value;
+const isNumeric = (str: string) => !isNaN(parseFloat(str));
 
 interface CountryMappers {
   [countryCode: string]: (result: RetrieveResponseResult) => RetrieveResponseResult;
 }
-
-const isNumeric = (str: string) => !isNaN(parseFloat(str));
 
 const countryMappers: CountryMappers = {
   ES(result: RetrieveResponseResult) {
