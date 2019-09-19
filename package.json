@@ -7,7 +7,7 @@
     "test": "jest",
     "build": "tsc",
     "develop": "tsc -w",
-    "prepublish": "npm run -s test && npm run -s build"
+    "prepublishOnly": "npm run -s test && npm run -s build"
   },
   "repository": {
     "type": "git",
