@@ -28,7 +28,6 @@
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
-    "@jest/types": "^24.9.0",
     "@types/isomorphic-fetch": "0.0.35",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
