@@ -20,6 +20,14 @@ const countryMappers: CountryMappers = {
     return result;
   },
   US(result: RetrieveResponseResult) {
+    if (isNumeric(result.building_name) && !result.building_number) {
+      return {
+        ...result,
+        building_name: "",
+        building_number: result.building_name,
+        postal_code: result.postal_code.split("-")[0]
+      };
+    }
     return {
       ...result,
       postal_code: result.postal_code.split("-")[0]

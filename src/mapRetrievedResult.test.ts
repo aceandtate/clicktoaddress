@@ -44,12 +44,36 @@ describe("mapRetrievedResult", () => {
     expect(result).toEqual({ postal_code: "30328" });
   });
 
-  it("should not format the post code in another coutry", () => {
+  it("should not format the post code in another country", () => {
     const result = mapRetrievedResult(
       { country: "NL" } as RetrieveArgs,
       { postal_code: "30328-6228" } as RetrieveResponseResult
     );
 
     expect(result).toEqual({ postal_code: "30328-6228" });
+  });
+
+  it("should map US address' building number and name", () => {
+    const result = mapRetrievedResult(
+      { country: "US" } as RetrieveArgs,
+      { building_name: "1", building_number: "", postal_code: "30328-6228" } as RetrieveResponseResult
+    );
+    expect(result).toEqual({
+      building_number: "1",
+      building_name: "",
+      postal_code: "30328"
+    });
+  });
+
+  it("should skip mapping US address' when data seems valid", () => {
+    const result = mapRetrievedResult(
+      { country: "US" } as RetrieveArgs,
+      { building_name: "x", building_number: "1", postal_code: "30328-6228" } as RetrieveResponseResult
+    );
+    expect(result).toEqual({
+      building_number: "1",
+      building_name: "x",
+      postal_code: "30328"
+    });
   });
 });
