@@ -26,6 +26,8 @@ export interface FindArgs {
 export interface FindResponse {
   results: Array<{
     id: string;
+    count: number;
+    labels: Array<string>;
   }>;
 }
 
