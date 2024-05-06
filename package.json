@@ -1,13 +1,13 @@
 {
   "name": "@aceandtate/clicktoaddress",
-  "version": "0.1.11",
+  "version": "0.1.13",
   "description": "A clicktoaddress client",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
     "develop": "tsc -w",
-    "prepublish": "npm run -s test && npm run -s build"
+    "prepublishOnly": "npm run -s test && npm run -s build"
   },
   "repository": {
     "type": "git",
