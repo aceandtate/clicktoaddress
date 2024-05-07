@@ -1,15 +1,16 @@
 name: "Codecov"
-on:
-  pull_request:
-    types: [edited, opened, reopened, synchronize]
+on: [push, pull_request]
 
 jobs:
-  build:
+  codecov:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+      - name: Set up Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: Restore npm cache
         uses: actions/cache@v2
