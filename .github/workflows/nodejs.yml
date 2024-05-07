@@ -1,5 +1,7 @@
 name: "Codecov"
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [edited, opened, reopened, synchronize]
 
 jobs:
   codecov:
