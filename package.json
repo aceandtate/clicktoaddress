@@ -1,6 +1,6 @@
 {
   "name": "@aceandtate/clicktoaddress",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A clicktoaddress client",
   "main": "dist/index.js",
   "scripts": {
